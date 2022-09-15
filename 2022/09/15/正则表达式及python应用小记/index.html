@@ -28,7 +28,7 @@
 <meta property="og:description" content="正则表达式及python应用小记 在所有语言都通用的正则表达式啊，展现你的威力吧">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-15T08:32:10.000Z">
-<meta property="article:modified_time" content="2022-09-15T09:08:42.407Z">
+<meta property="article:modified_time" content="2022-09-15T10:48:56.179Z">
 <meta property="article:author" content="てつや">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">正则表达式及python应用小记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%85%E5%AE%B9%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">正则表达式内容概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">普通字符</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">正则表达式及python应用小记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%85%E5%AE%B9%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">正则表达式内容概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">普通字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.1.2.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D%E7%AC%A6"><span class="nav-number">1.1.3.</span> <span class="nav-text">定位符</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +238,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-09-15 16:32:10 / 修改时间：17:08:42" itemprop="dateCreated datePublished" datetime="2022-09-15T16:32:10+08:00">2022-09-15</time>
+      <time title="创建时间：2022-09-15 16:32:10 / 修改时间：18:48:56" itemprop="dateCreated datePublished" datetime="2022-09-15T16:32:10+08:00">2022-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,14 +264,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>836</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -353,7 +353,87 @@
 <p>分别输出什么结果？</p>
 <p>请自行复制代码运行进行验证。</p>
 <p>光判断出现一次可不够，所以我们要：出现两次！</p>
-<p>其实出现固定次数的话可以直接进行拼接堆叠。如<code>[A-Z][a-z]\d</code>即为开头为大写英语字母、中间是小写英语字母、最后是数字的长度为3的字符串。</p>
+<p>出现<strong>固定次数</strong>的话可以直接进行拼接堆叠。</p>
+<p>如<code>[A-Z][a-z]\d</code>即为开头为大写英语字母、中间是小写英语字母、最后是数字的长度为3的字符串。</p>
+<p>但是还是无法表达所有情况，所以我们引入了：<strong>特殊符号</strong></p>
+<h3 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h3><p>用来表示出现次数等</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>[a-z]*</td>
+<td>出现0次或以上，可以重复</td>
+</tr>
+<tr>
+<td>+</td>
+<td>\w+</td>
+<td>出现1次或以上，可以重复</td>
+</tr>
+<tr>
+<td>？</td>
+<td>[a-z]?</td>
+<td>出现0次或一次。</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>\d{3}</td>
+<td>出现确定的n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>\d{3,}</td>
+<td>出现n次或更多次，没有上限</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>\d{3,5}</td>
+<td>出现最少n次，最多m次</td>
+</tr>
+</tbody></table>
+<p>举例说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[A-Z][a-z]*&#x27;</span>,<span class="string">&#x27;Amazon Google tecent&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;Amazon&#x27;, &#x27;Google&#x27;] 因为规定A-Z开头</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[A-Za-z]*\d+&#x27;</span>,<span class="string">&#x27;Amazon3 Google234782 tecent&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;Amazon3&#x27;, &#x27;Google234782&#x27;] 因为需要字母后面出现一次或多次数字</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;dirt[a-z]?&#x27;</span>,<span class="string">&#x27;dirty deeds done dirt cheap&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;dirty&#x27;, &#x27;dirt&#x27;] ？表示最后可以出现一个小写字母或不出现</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;\d&#123;11&#125;&#x27;</span>,<span class="string">&#x27;13795364257 137544499 810975&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;13795364257&#x27;] &#123;11&#125;限定为11位数字，可以用来初步判断手机号码</span></span><br></pre></td></tr></table></figure>
+
+<p>还有一个符号<code>|</code>，用来表示或者，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;d(?:ir|e|o)[a-z]+&#x27;</span>,<span class="string">&#x27;dirty deeds done dirt cheap&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;dirty&#x27;, &#x27;deeds&#x27;, &#x27;done&#x27;, &#x27;dirt&#x27;] </span></span><br><span class="line"><span class="comment"># 这里?:是python里的特殊语法，用来区别括号的用途。</span></span><br><span class="line"><span class="comment"># 这里加了?:用来表示括号只是表示优先级用的。相当于 d(ir|e|o)[a-z]+</span></span><br><span class="line"><span class="comment"># 之后还会了解到括号的另一种用法。</span></span><br><span class="line"><span class="comment"># ir|e|o 表示要不是ir，要不是e，要不是o，三者选其一，和[]用法类似</span></span><br><span class="line"><span class="comment"># 区别是：|可以在两端写复杂的表达式或者多个字母，而[]只能选择里面的每一个字母</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h3><p>定位符用来标明从哪里匹配。</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>代表字符串开始的地方。</td>
+</tr>
+<tr>
+<td>$</td>
+<td>代表字符串结束的地方。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>代表每个单词的边界。</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>代表非单词的边界。</td>
+</tr>
+</tbody></table>
+<p>举例说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;^d[a-z]+&#x27;</span>,<span class="string">&#x27;dirty deeds dane dirt cheap&#x27;</span>))</span><br><span class="line"><span class="comment"># 输出[&#x27;dirty&#x27;] 因为^代表了字符串开头的位置，只有dirty一个单词能匹配上</span></span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 
@@ -408,14 +488,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">4k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
