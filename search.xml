@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2022/09/06/test/</url>
-    <content><![CDATA[<h1 id="生まれだ！"><a href="#生まれだ！" class="headerlink" title="生まれだ！"></a>生まれだ！</h1><p>俺は何度も何度もまでにこの時間が生まれだですよ</p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</title>
     <url>/2022/09/06/%E3%80%8C%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E3%80%8Dmac%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E5%9C%A8hexo%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2md/</url>
     <content><![CDATA[<h1 id="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"><a href="#「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署" class="headerlink" title="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"></a>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</h1><blockquote>
@@ -71,6 +59,94 @@
       <tags>
         <tag>快捷指令</tag>
         <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2022/09/06/test/</url>
+    <content><![CDATA[<h1 id="生まれだ！"><a href="#生まれだ！" class="headerlink" title="生まれだ！"></a>生まれだ！</h1><p>俺は何度も何度もまでにこの時間が生まれだですよ</p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式及python应用小记</title>
+    <url>/2022/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="正则表达式及python应用小记"><a href="#正则表达式及python应用小记" class="headerlink" title="正则表达式及python应用小记"></a>正则表达式及python应用小记</h1><blockquote>
+<p>在所有语言都通用的正则表达式啊，展现你的威力吧</p>
+</blockquote>
+<h2 id="正则表达式内容概述"><a href="#正则表达式内容概述" class="headerlink" title="正则表达式内容概述"></a>正则表达式内容概述</h2><blockquote>
+<p>本部分内容是纯本人看<a href="https://www.runoob.com/regexp/regexp-syntax.html">菜鸟教程</a>学习总结的，网站上可能有点晦涩难懂，但是比较全；我总结的可能比较易于理解（哪来的自信），但是会有部分省略。让我们带着很多例子来愉快学习吧。</p>
+</blockquote>
+<p>正则表达式是一种字符的出现模式（或者说规律？），使用正则表达式就是把我们想要的字符串的模式用正则表达式写出来，然后机器负责在目标字符串里找出符合你写的规律的子串。</p>
+<h3 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h3><table>
+<thead>
+<tr>
+<th>pattern</th>
+<th>String</th>
+<th>result</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[ABC]</td>
+<td>ABCDEFG</td>
+<td>[‘A’,’B’,’C’]</td>
+<td>匹配[]中出现的字符，[]所有字符都有可能出现，出现次数为一次。过程：寻找字符串里面出现了A或者B或者C一次的地方，找到了A和B和C</td>
+</tr>
+<tr>
+<td>[^ABCD]</td>
+<td>ABCDEFG</td>
+<td>[‘E’,’F’,’G’]</td>
+<td>^表示除后面的字符之外都行，于是找到了不是ABCD的E和F和G</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>AbCdefg</td>
+<td>[‘A’,’C’]</td>
+<td>A-Z表示所有大写英语字母。小写可以用a-z表示</td>
+</tr>
+<tr>
+<td>.</td>
+<td></td>
+<td></td>
+<td>匹配所有换行符(\n\r)以外的字符</td>
+</tr>
+<tr>
+<td>[\s]</td>
+<td>ab cd ef</td>
+<td>[‘ ‘,’ ‘]</td>
+<td>\s表示匹配所有空白符，例子中有两个空白符</td>
+</tr>
+<tr>
+<td>[\S]</td>
+<td>a b</td>
+<td>[‘a’,’b’]</td>
+<td>\S表示匹配所有非空白符，不包括换行</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>A3&#x2F;_$</td>
+<td>[‘A’,’3’,’_’]</td>
+<td>匹配数字、字母、下划线</td>
+</tr>
+</tbody></table>
+<p>思考题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[\s]&#x27;</span>,<span class="string">&#x27;ab  cd e&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[^$@]&#x27;</span>,<span class="string">&#x27;a@b$cd@qq.com&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>分别输出什么结果？</p>
+<p>请自行复制代码运行进行验证。</p>
+]]></content>
+      <categories>
+        <category>编程笔记</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
