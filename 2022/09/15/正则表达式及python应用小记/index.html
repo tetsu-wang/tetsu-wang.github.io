@@ -28,7 +28,7 @@
 <meta property="og:description" content="正则表达式及python应用小记 在所有语言都通用的正则表达式啊，展现你的威力吧">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-15T08:32:10.000Z">
-<meta property="article:modified_time" content="2022-09-15T09:02:26.875Z">
+<meta property="article:modified_time" content="2022-09-15T09:08:42.407Z">
 <meta property="article:author" content="てつや">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -238,7 +238,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-09-15 16:32:10 / 修改时间：17:02:26" itemprop="dateCreated datePublished" datetime="2022-09-15T16:32:10+08:00">2022-09-15</time>
+      <time title="创建时间：2022-09-15 16:32:10 / 修改时间：17:08:42" itemprop="dateCreated datePublished" datetime="2022-09-15T16:32:10+08:00">2022-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>720</span>
+      <span>836</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -340,12 +340,20 @@
 <td>[‘A’,’3’,’_’]</td>
 <td>匹配数字、字母、下划线</td>
 </tr>
+<tr>
+<td>\d</td>
+<td>A3&#x2F;_$</td>
+<td>[‘3’]</td>
+<td>匹配所有数字</td>
+</tr>
 </tbody></table>
 <p>思考题：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[\s]&#x27;</span>,<span class="string">&#x27;ab  cd e&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[^$@]&#x27;</span>,<span class="string">&#x27;a@b$cd@qq.com&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>分别输出什么结果？</p>
 <p>请自行复制代码运行进行验证。</p>
+<p>光判断出现一次可不够，所以我们要：出现两次！</p>
+<p>其实出现固定次数的话可以直接进行拼接堆叠。如<code>[A-Z][a-z]\d</code>即为开头为大写英语字母、中间是小写英语字母、最后是数字的长度为3的字符串。</p>
 
     </div>
 
@@ -400,7 +408,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">3k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

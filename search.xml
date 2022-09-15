@@ -1,61 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>正则表达式及python应用小记</title>
-      <link href="/2022/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
-      <url>/2022/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="正则表达式及python应用小记"><a href="#正则表达式及python应用小记" class="headerlink" title="正则表达式及python应用小记"></a>正则表达式及python应用小记</h1><blockquote><p>在所有语言都通用的正则表达式啊，展现你的威力吧</p></blockquote><h2 id="正则表达式内容概述"><a href="#正则表达式内容概述" class="headerlink" title="正则表达式内容概述"></a>正则表达式内容概述</h2><blockquote><p>本部分内容是纯本人看<a href="https://www.runoob.com/regexp/regexp-syntax.html">菜鸟教程</a>学习总结的，网站上可能有点晦涩难懂，但是比较全；我总结的可能比较易于理解（哪来的自信），但是会有部分省略。让我们带着很多例子来愉快学习吧。</p></blockquote><p>正则表达式是一种字符的出现模式（或者说规律？），使用正则表达式就是把我们想要的字符串的模式用正则表达式写出来，然后机器负责在目标字符串里找出符合你写的规律的子串。</p><h3 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h3><table><thead><tr><th>pattern</th><th>String</th><th>result</th><th>explanation</th></tr></thead><tbody><tr><td>[ABC]</td><td>ABCDEFG</td><td>[‘A’,’B’,’C’]</td><td>匹配[]中出现的字符，[]所有字符都有可能出现，出现次数为一次。过程：寻找字符串里面出现了A或者B或者C一次的地方，找到了A和B和C</td></tr><tr><td>[^ABCD]</td><td>ABCDEFG</td><td>[‘E’,’F’,’G’]</td><td>^表示除后面的字符之外都行，于是找到了不是ABCD的E和F和G</td></tr><tr><td>[A-Z]</td><td>AbCdefg</td><td>[‘A’,’C’]</td><td>A-Z表示所有大写英语字母。小写可以用a-z表示</td></tr><tr><td>.</td><td></td><td></td><td>匹配所有换行符(\n\r)以外的字符</td></tr><tr><td>[\s]</td><td>ab cd ef</td><td>[‘ ‘,’ ‘]</td><td>\s表示匹配所有空白符，例子中有两个空白符</td></tr><tr><td>[\S]</td><td>a b</td><td>[‘a’,’b’]</td><td>\S表示匹配所有非空白符，不包括换行</td></tr><tr><td>\w</td><td>A3&#x2F;_$</td><td>[‘A’,’3’,’_’]</td><td>匹配数字、字母、下划线</td></tr></tbody></table><p>思考题：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[\s]&#x27;</span>,<span class="string">&#x27;ab  cd e&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[^$@]&#x27;</span>,<span class="string">&#x27;a@b$cd@qq.com&#x27;</span>))</span><br></pre></td></tr></table></figure><p>分别输出什么结果？</p><p>请自行复制代码运行进行验证。</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</title>
+    <url>/2022/09/06/%E3%80%8C%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E3%80%8Dmac%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E5%9C%A8hexo%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2md/</url>
+    <content><![CDATA[<h1 id="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"><a href="#「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署" class="headerlink" title="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"></a>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</h1><blockquote>
+<p>前言：昨天使用hexo+next快速搭建了自己的博客，今天就开始思考用什么样的工作流来快速进行写作。</p>
+<p>内容输出 贵在 <del>文章质量</del> <strong>工作流流畅舒适</strong></p>
+</blockquote>
+<p>环境使用带内建快捷指令的macOS（老版本也可以用<code>自动操作</code>）。我的老版本MBP是带Touch Bar的，本人非常喜欢（叠个甲，你也可以不喜欢）</p>
+<h2 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h2><p>在hexo中，使用<code>hexo new &lt;title&gt;/&lt;filename.md&gt;</code>来新建一篇文章。如此新建文章的好处是：<strong>能够自动输入markdown头的代码段</strong>，如这篇文章是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 「快捷指令」mac中使用快捷指令在hexo快速新建博客md</span><br><span class="line">date: 2022-09-06 21:38:16</span><br><span class="line">tags:</span><br><span class="line">- 快捷指令</span><br><span class="line">- mac</span><br><span class="line">categories: MacOS一家亲</span><br></pre></td></tr></table></figure>
+
+<p>从而快速进行打标签和分类。</p>
+<p>如果你还不知道怎么使用hexo+next对文章进行打标签和分类，请参考<a href="https://zbttl.github.io/hexo-ru-men/?highlight=hexo">这篇文章</a>中的<em>美化</em>篇</p>
+<p>所以我们要转移到网站所在目录中，使用<code>hexo new</code>来新建，使用<code>hexo g</code>来部署。最后使用mac系统的<code>open &lt;file&gt;</code>命令就可以使用默认应用程序打开该markdown文件了。</p>
+<p>这时候，使用<strong>快捷指令</strong>的想法就出现在了我的脑海中。</p>
+<p>深度结合操作系统，运行快捷，甚至可以多平台（本文使用的本地shell暂时还做不到，以后如果有服务器版本的话再说吧）运行。这样想完，就可以开始着手操作了。</p>
+<h2 id="1-2-具体步骤"><a href="#1-2-具体步骤" class="headerlink" title="1.2 具体步骤"></a>1.2 具体步骤</h2><ol>
+<li>打开快捷指令，并新建一个。</li>
+</ol>
+<p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-06%2022.28.57.png" alt="截屏2022-09-06 22.28.57"></p>
+<ol start="2">
+<li>右侧搜索栏中搜索<code>请求输入</code>并双击，新建一个输入。其中的提示可以自行选择，类型选择<strong>文本</strong>。</li>
+</ol>
+<p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-06%2022.29.35.png" alt="截屏2022-09-06 22.29.35"></p>
+<ol start="3">
+<li>输入的文本即位我们新建的markdown的文件名。不需要带.md后缀。我们搜索<code>shell</code>找到<code>运行Shell脚本</code>，将如下内容复制进去。</li>
+</ol>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd &lt;blog_website_pwd&gt; #改成你自己的blog文件夹的绝对路径</span><br><span class="line">hexo new $1</span><br><span class="line">open source/_posts/$1.md</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-07%2000.04.30.png" alt="截屏2022-09-07 00.04.30"></p>
+<p>  并确认<code>输入：</code>为<code>提供的输入</code>，<code>传入输入内容：</code>为<code>作为参数</code>。</p>
+<p>  其中，<code>$1</code>代表着快捷指令给我们提供的<code>传入输入内容：作为参数</code>选项中传入的参数。</p>
+<p>  其实，在sh或者zsh中，<code>$0</code>代表执行的脚本文件名，<code>$1</code>代表后面传入的第一个参数，以此类推可以用<code>$n</code>来代表后面传入的第n个参数。</p>
+<p>  可以尝试：在快捷指令中的shell执行<code>echo $0</code>查看输出结果。结果为：</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/var/folders/6y/&lt;快捷指令编号xxxxxxxxxxxxxx&gt;/T/com.apple.WorkflowKit.BackgroundShortcutRunner//&lt;zshUUIDxxxxxxxx&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  这个就是快捷指令生成的zsh的文件名和存放路径了。当然这只是题外话，我们继续。</p>
+<ol start="4">
+<li>点击执行查看结果。不出意外应该会创建一篇文章并且通过系统设置的markdown默认打开方式打开。如想指定应用程序，可以改成：</li>
+</ol>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">open -a &lt;app的绝对路径&gt; $1</span><br></pre></td></tr></table></figure>
+
+<pre><code>  app的绝对路径可以在`应用程序`文件夹里面右键应用点击属性查看到。
+</code></pre>
+<ol start="5">
+<li><p>指定快捷操作：可以在右侧选择快捷访问操作，比如我就使用快速操作绑定到了Touch Bar，非常方便。具体方式还请自行查找研究吧，我也不是很会。</p>
+</li>
+<li><p><strong>一键部署</strong>。换汤不换药，新建一个快捷指定并运行shell脚本。不同的是我们这次不需要输入，直接执行即可。复制：</p>
+</li>
+</ol>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd &lt;blog_website_pwd&gt; #改成你自己的blog文件夹的绝对路径</span><br><span class="line">hexo clean &amp; hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>​	执行这段代码，就可以将保存好的内容一键部署到网站上啦。</p>
+<p>​	同样可以使用快捷访问，在touchbar通过点击进行部署。</p>
+<h2 id="2-1-总结"><a href="#2-1-总结" class="headerlink" title="2.1 总结"></a>2.1 总结</h2><p>非常简洁快速的运用快捷指令进行了hexo新建和部署的简化。不得不说苹果还是好用啊</p>
+<p>（windows其实也可以使用脚本和<code>win+r</code>进行操作，但是奈何touchbar只需要手指触摸三下，体验还是不同）。</p>
+<p>水了第一篇博客，很简单的记录而已，不知道会不会对你有帮助呢？</p>
+<p>希望以后能继续内容输出吧。  </p>
+]]></content>
       <categories>
-          
-          <category> 编程笔记 </category>
-          
+        <category>MacOS一家亲</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程 </tag>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</title>
-      <link href="/2022/09/06/%E3%80%8C%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E3%80%8Dmac%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E5%9C%A8hexo%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2md/"/>
-      <url>/2022/09/06/%E3%80%8C%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E3%80%8Dmac%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E5%9C%A8hexo%E5%BF%AB%E9%80%9F%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2md/</url>
-      
-        <content type="html"><![CDATA[<h1 id="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"><a href="#「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署" class="headerlink" title="「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署"></a>「快捷指令」mac中使用快捷指令在hexo快速新建博客md并部署</h1><blockquote><p>前言：昨天使用hexo+next快速搭建了自己的博客，今天就开始思考用什么样的工作流来快速进行写作。</p><p>内容输出 贵在 <del>文章质量</del> <strong>工作流流畅舒适</strong></p></blockquote><p>环境使用带内建快捷指令的macOS（老版本也可以用<code>自动操作</code>）。我的老版本MBP是带Touch Bar的，本人非常喜欢（叠个甲，你也可以不喜欢）</p><h2 id="1-1-大体思路"><a href="#1-1-大体思路" class="headerlink" title="1.1 大体思路"></a>1.1 大体思路</h2><p>在hexo中，使用<code>hexo new &lt;title&gt;/&lt;filename.md&gt;</code>来新建一篇文章。如此新建文章的好处是：<strong>能够自动输入markdown头的代码段</strong>，如这篇文章是：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: 「快捷指令」mac中使用快捷指令在hexo快速新建博客md</span><br><span class="line">date: 2022-09-06 21:38:16</span><br><span class="line">tags:</span><br><span class="line">- 快捷指令</span><br><span class="line">- mac</span><br><span class="line">categories: MacOS一家亲</span><br></pre></td></tr></table></figure><p>从而快速进行打标签和分类。</p><p>如果你还不知道怎么使用hexo+next对文章进行打标签和分类，请参考<a href="https://zbttl.github.io/hexo-ru-men/?highlight=hexo">这篇文章</a>中的<em>美化</em>篇</p><p>所以我们要转移到网站所在目录中，使用<code>hexo new</code>来新建，使用<code>hexo g</code>来部署。最后使用mac系统的<code>open &lt;file&gt;</code>命令就可以使用默认应用程序打开该markdown文件了。</p><p>这时候，<strong>快捷指令</strong>就第一个出现在了我的脑海中。</p><p>深度结合操作系统，运行快捷，甚至可以多平台（本文使用的本地shell暂时还做不到，以后如果有服务器版本的话再说吧）运行。这样想完，就可以开始着手操作了。</p><h2 id="1-2-具体步骤"><a href="#1-2-具体步骤" class="headerlink" title="1.2 具体步骤"></a>1.2 具体步骤</h2><ol><li>打开快捷指令，并新建一个。</li></ol><p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-06%2022.28.57.png" alt="截屏2022-09-06 22.28.57"></p><ol start="2"><li>搜索<code>请求输入</code>,并双击，新建一个输入。其中的提示可以自行选择，类型选择<strong>文本</strong>。</li></ol><p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-06%2022.29.35.png" alt="截屏2022-09-06 22.29.35"></p><ol start="3"><li>输入的文本即位我们新建的markdown的文件名。不需要带.md后缀。我们搜索<code>shell</code>找到<code>运行Shell脚本</code>，将如下内容复制进去。</li></ol>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;blog_website_pwd&gt; #改成你自己的blog文件夹的绝对路径</span><br><span class="line">hexo new $1</span><br><span class="line">open source/_posts/$1.md</span><br></pre></td></tr></table></figure><p>  <img src="https://picbedforzeyi.oss-cn-hangzhou.aliyuncs.com/blogimg/%E6%88%AA%E5%B1%8F2022-09-07%2000.04.30.png" alt="截屏2022-09-07 00.04.30"></p><p>  并确认<code>输入：</code>为<code>提供的输入</code>，<code>传入输入内容：</code>为<code>作为参数</code>。</p><p>  其中，<code>$1</code>代表着快捷指令给我们提供的<code>传入输入内容：作为参数</code>选项中传入的参数。其实，在sh或者zsh中，<code>$0</code>代表执行的脚本文件名，<code>$1</code>代表后面传入的第一个参数，以此类推可以用<code>$n</code>来代表后面传入的第n个参数。</p><p>  可以尝试：在快捷指令中的shell执行<code>echo $0</code>查看输出结果。结果为：</p>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/folders/6y/&lt;快捷指令编号xxxxxxxxxxxxxx&gt;/T/com.apple.WorkflowKit.BackgroundShortcutRunner//&lt;zshUUIDxxxxxxxx&gt;</span><br></pre></td></tr></table></figure><ol start="4"><li>点击执行查看结果。不出意外应该会创建一篇文章并且通过系统设置的markdown默认打开方式打开。如想指定应用程序，可以改成：</li></ol>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a &lt;app的绝对路径&gt; $1</span><br></pre></td></tr></table></figure><ol start="5"><li><p>指定快捷操作：可以在右侧选择快捷访问操作，比如我就使用快速操作绑定到了Touch Bar，非常方便。具体内容请自行研究吧，我也不会。</p></li><li><p><strong>一键部署</strong>。换汤不换药，新建一个快捷指定并运行shell脚本。不同的是我们这次不需要输入，直接执行即可。复制：</p></li></ol>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;blog_website_pwd&gt; #改成你自己的blog文件夹的绝对路径</span><br><span class="line">hexo clean &amp; hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>  同样，可以指定快捷操作。</p><h2 id="2-1-总结"><a href="#2-1-总结" class="headerlink" title="2.1 总结"></a>2.1 总结</h2><p>非常简洁快速的运用快捷指令进行了hexo新建和部署的简化。不得不说苹果还是好用啊（windows其实也可以使用脚本和<code>win+r</code>进行操作，但是奈何touchbar可以手指触摸三下，体验还是不同）。</p><p>水了第一篇博客，很简单的记录而已，不知道会不会对你有帮助呢？</p><p>希望以后能继续内容输出吧。  </p>]]></content>
-      
-      
+      <tags>
+        <tag>快捷指令</tag>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式及python应用小记</title>
+    <url>/2022/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Apython%E5%BA%94%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="正则表达式及python应用小记"><a href="#正则表达式及python应用小记" class="headerlink" title="正则表达式及python应用小记"></a>正则表达式及python应用小记</h1><blockquote>
+<p>在所有语言都通用的正则表达式啊，展现你的威力吧</p>
+</blockquote>
+<h2 id="正则表达式内容概述"><a href="#正则表达式内容概述" class="headerlink" title="正则表达式内容概述"></a>正则表达式内容概述</h2><blockquote>
+<p>本部分内容是纯本人看<a href="https://www.runoob.com/regexp/regexp-syntax.html">菜鸟教程</a>学习总结的，网站上可能有点晦涩难懂，但是比较全；我总结的可能比较易于理解（哪来的自信），但是会有部分省略。让我们带着很多例子来愉快学习吧。</p>
+</blockquote>
+<p>正则表达式是一种字符的出现模式（或者说规律？），使用正则表达式就是把我们想要的字符串的模式用正则表达式写出来，然后机器负责在目标字符串里找出符合你写的规律的子串。</p>
+<h3 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h3><table>
+<thead>
+<tr>
+<th>pattern</th>
+<th>String</th>
+<th>result</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[ABC]</td>
+<td>ABCDEFG</td>
+<td>[‘A’,’B’,’C’]</td>
+<td>匹配[]中出现的字符，[]所有字符都有可能出现，出现次数为一次。过程：寻找字符串里面出现了A或者B或者C一次的地方，找到了A和B和C</td>
+</tr>
+<tr>
+<td>[^ABCD]</td>
+<td>ABCDEFG</td>
+<td>[‘E’,’F’,’G’]</td>
+<td>^表示除后面的字符之外都行，于是找到了不是ABCD的E和F和G</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>AbCdefg</td>
+<td>[‘A’,’C’]</td>
+<td>A-Z表示所有大写英语字母。小写可以用a-z表示</td>
+</tr>
+<tr>
+<td>.</td>
+<td></td>
+<td></td>
+<td>匹配所有换行符(\n\r)以外的字符</td>
+</tr>
+<tr>
+<td>[\s]</td>
+<td>ab cd ef</td>
+<td>[‘ ‘,’ ‘]</td>
+<td>\s表示匹配所有空白符，例子中有两个空白符</td>
+</tr>
+<tr>
+<td>[\S]</td>
+<td>a b</td>
+<td>[‘a’,’b’]</td>
+<td>\S表示匹配所有非空白符，不包括换行</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>A3&#x2F;_$</td>
+<td>[‘A’,’3’,’_’]</td>
+<td>匹配数字、字母、下划线</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>A3&#x2F;_$</td>
+<td>[‘3’]</td>
+<td>匹配所有数字</td>
+</tr>
+</tbody></table>
+<p>思考题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[\s]&#x27;</span>,<span class="string">&#x27;ab  cd e&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">&#x27;[^$@]&#x27;</span>,<span class="string">&#x27;a@b$cd@qq.com&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>分别输出什么结果？</p>
+<p>请自行复制代码运行进行验证。</p>
+<p>光判断出现一次可不够，所以我们要：出现两次！</p>
+<p>其实出现固定次数的话可以直接进行拼接堆叠。如<code>[A-Z][a-z]\d</code>即为开头为大写英语字母、中间是小写英语字母、最后是数字的长度为3的字符串。</p>
+]]></content>
       <categories>
-          
-          <category> MacOS一家亲 </category>
-          
+        <category>编程笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 快捷指令 </tag>
-            
-            <tag> mac </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>编程</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
